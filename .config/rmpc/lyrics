@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+
+to_seconds() {
+    case $1 in
+        *:*:*) IFS=: read -r h m s <<< "$1"; echo $((h*3600+m*60+s)) ;;
+        *:*)   IFS=: read -r m s   <<< "$1"; echo $((m*60+s))        ;;
+        *)     echo ${1:-0}                                          ;;
+    esac
+}
+
+LRCLIB_INSTANCE="https://lrclib.net"
+LYRICS_DIR="$HOME/Documents/Music/lyrics"
+DURATION_SEC="$(to_seconds "$DURATION")"
+LRC_FILE="$LYRICS_DIR/$ARTIST/$ALBUM/$TITLE.lrc"
+
+if [ -f "$LRC_FILE" ]; then
+    exit
+fi
+
+LYRICS="$(curl -sG \
+    --data-urlencode "artist_name=$ARTIST" \
+    --data-urlencode "track_name=$TITLE" \
+    --data-urlencode "album_name=$ALBUM" \
+    --data-urlencode "duration=$DURATION_SEC" \
+    "$LRCLIB_INSTANCE/api/get" | jq -r '.syncedLyrics // .plainLyrics')"
+
+if [ -z "$LYRICS" ] || [ "$LYRICS" = "null" ]; then
+    exit
+fi
+
+mkdir -p "$(dirname "$LRC_FILE")"
+{
+    echo "[ar:$ARTIST]"
+    echo "[al:$ALBUM]"
+    echo "[ti:$TITLE]"
+    printf "%s\n" "$LYRICS" | sed -E '/^\[(ar|al|ti):/d'
+} > "$LRC_FILE"
