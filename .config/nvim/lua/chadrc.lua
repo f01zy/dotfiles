@@ -6,24 +6,24 @@
 local M = {}
 
 M.base46 = {
-  theme = "tokyodark",
+	theme = "tokyonight",
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+	hl_override = {
+		Comment = { italic = true },
+		["@comment"] = { italic = true },
+	},
 }
 
 M.nvdash = { load_on_startup = true }
 M.ui = {
-  tabufline = {
-    lazyload = false,
-  },
+	tabufline = {
+		lazyload = false,
+	},
 
-  statusline = {
-    theme = "vscode_colored",
-    separator_style = "block",
-  },
+	statusline = {
+		theme = "vscode_colored",
+		separator_style = "block",
+	},
 }
 
 return M

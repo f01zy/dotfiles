@@ -6,8 +6,8 @@
   draw_borders: false,
   show_song_table_header: true,
   symbols: (
-    song: "",
-    dir: "",
+    song: "󰎇",
+    dir: "󰉋",
     playlist: "",
     marker: "\u{e0b0}"
   ),
@@ -20,7 +20,7 @@
     ],
   ),
   progress_bar: (
-    symbols: ["█", "█", "█", " ", "█"],
+    symbols: ["", "", " "],
     track_style: (bg: "#1e2030"),
     elapsed_style: (fg: "#c6a0f6", bg: "#1e2030"),
     thumb_style: (fg: "#c6a0f6", bg: "#1e2030"),
