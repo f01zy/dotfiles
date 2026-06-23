@@ -18,47 +18,9 @@
     ./modules/lf.nix
     ./modules/zathura.nix
     ./modules/gnupg.nix
+    ./modules/themes.nix
+    ./modules/mime.nix
   ];
-
-  # Default programs
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = "lf.desktop";
-      "text/html" = "zen.desktop";
-      "x-scheme-handler/http" = "zen.desktop";
-      "x-scheme-handler/https" = "zen.desktop";
-      "x-scheme-handler/about" = "zen.desktop";
-      "x-scheme-handler/unknown" = "zen.desktop";
-    };
-  };
-
-  xdg.desktopEntries.lf = {
-    name = "lf";
-    genericName = "File Manager";
-    exec = "alacritty -e lf %u";
-    terminal = true;
-    categories = [
-      "Utility"
-      "FileManager"
-      "ConsoleOnly"
-    ];
-    mimeType = [ "inode/directory" ];
-  };
-
-  # Themming
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 18;
-  };
-
-  home.sessionVariables = {
-    XCURSOR_THEME = "Bibata-Modern-Ice";
-    XCURSOR_SIZE = "18";
-  };
 
   # Packages
   nixpkgs.config.allowUnfree = true;
@@ -70,6 +32,7 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Programs
+    discord
     spotify
     bluetui
     obsidian

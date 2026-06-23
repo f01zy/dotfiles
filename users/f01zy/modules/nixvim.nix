@@ -195,6 +195,15 @@
           desc = "Go to previous buffer";
         };
       }
+      {
+        mode = "n";
+        key = "<leader>x";
+        action = "<cmd>bdelete<CR>";
+        options = {
+          silent = true;
+          desc = "Close current buffer";
+        };
+      }
     ];
   };
 }
