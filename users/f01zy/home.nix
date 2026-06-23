@@ -41,6 +41,8 @@
     wmenu
 
     # Development & Build Tools
+    prettier
+    bun
     cmake
     gcc
     git
