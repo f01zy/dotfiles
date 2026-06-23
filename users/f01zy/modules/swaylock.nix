@@ -4,12 +4,10 @@
     package = pkgs.swaylock-effects;
 
     settings = {
-      screenshots = true;
+      screenshots = false;
       clock = true;
       indicator = true;
       indicator-radius = 100;
-      effect-blur = "7x5";
-      effect-vignette = "0.5:0.5";
       fade-in = 0.2;
       color = "1e1e2e";
       bs-hl-color = "f5e0dc";
