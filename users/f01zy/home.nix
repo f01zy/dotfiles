@@ -20,6 +20,9 @@
     ./modules/gnupg.nix
     ./modules/themes.nix
     ./modules/mime.nix
+    ./modules/zen.nix
+    ./modules/swaylock.nix
+    ./modules/swayidle.nix
   ];
 
   # Packages
@@ -41,8 +44,6 @@
     wmenu
 
     # Development & Build Tools
-    prettier
-    bun
     cmake
     gcc
     git

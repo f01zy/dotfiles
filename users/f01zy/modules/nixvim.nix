@@ -87,9 +87,6 @@
         servers = {
           clangd.enable = true;
           nixd.enable = true;
-          ts_ls.enable = true;
-          html.enable = true;
-          cssls.enable = true;
         };
       };
 
@@ -112,10 +109,6 @@
         enable = true;
         settings = {
           formatters_by_ft = {
-            javascript = [ "prettier" ];
-            typescript = [ "prettier" ];
-            html = [ "prettier" ];
-            css = [ "prettier" ];
             c = [ "clang-format" ];
             nix = [ "nixfmt" ];
           };

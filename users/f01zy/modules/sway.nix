@@ -116,8 +116,9 @@
           "--locked XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
           "--locked XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 
-          "XF86Launch4" = "exec systemctl suspend";
+          "XF86Launch4" = "exec swaylock -f && systemctl suspend";
           "Print" = "exec grim -g \"$(slurp)\" -t png - | wl-copy -t image/png";
+          "${mod}+Shift+x" = "exec swaylock";
           "${mod}+Shift+z" = "exec zen";
           "${mod}+Shift+o" = "exec obsidian";
           "${mod}+Shift+w" = "exec wallpaper random";
@@ -152,6 +153,16 @@
           always = true;
         }
       ];
+
+      colors = {
+        focused = {
+          border = "#89b4fa";
+          childBorder = "#89b4fa";
+          background = "#89b4fa";
+          text = "#1e1e2e";
+          indicator = "#f5e0dc";
+        };
+      };
     };
 
     extraConfig = ''
