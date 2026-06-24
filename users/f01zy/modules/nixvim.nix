@@ -20,6 +20,16 @@
       };
     };
 
+    diagnostic.settings = {
+      signs = false;
+      virtual_text = {
+        spacing = 4;
+        prefix = "●";
+      };
+      underline = true;
+      severity_sort = true;
+    };
+
     plugins = {
       wakatime.enable = true;
       cmp-nvim-lsp.enable = true;
@@ -82,14 +92,6 @@
         };
       };
 
-      lsp = {
-        enable = true;
-        servers = {
-          clangd.enable = true;
-          nixd.enable = true;
-        };
-      };
-
       cmp = {
         enable = true;
         settings = {
@@ -105,12 +107,23 @@
         };
       };
 
+      lsp = {
+        enable = true;
+        servers = {
+          clangd.enable = true;
+          nixd.enable = true;
+          pyright.enable = true;
+          ruff.enable = true;
+        };
+      };
+
       conform-nvim = {
         enable = true;
         settings = {
           formatters_by_ft = {
             c = [ "clang-format" ];
             nix = [ "nixfmt" ];
+            python = [ "ruff_format" ];
           };
           format_on_save = {
             lsp_fallback = true;
