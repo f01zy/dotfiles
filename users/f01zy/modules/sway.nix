@@ -145,7 +145,7 @@
 
       startup = [
         {
-          command = "swaymsg output VGA-1 disable";
+          command = "swaymsg output VGA-1 disable && swaymsg output VGA-2 disable";
           always = true;
         }
         {

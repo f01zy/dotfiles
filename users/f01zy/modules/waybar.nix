@@ -6,7 +6,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 28;
+        height = 25;
         modules-left = [
           "sway/workspaces"
           "custom/separator"
