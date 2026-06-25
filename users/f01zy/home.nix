@@ -23,6 +23,7 @@
     ./modules/zen.nix
     ./modules/swaylock.nix
     ./modules/swayidle.nix
+    ./modules/rofi.nix
   ];
 
   # Packages
@@ -30,6 +31,8 @@
   home.packages = with pkgs; [
     # Scripts
     (import ./scripts/wallpaper.nix { inherit pkgs; })
+    (import ./scripts/menu.nix { inherit pkgs; })
+    (import ./scripts/off.nix { inherit pkgs; })
 
     # Inputs (Flakes)
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -41,7 +44,6 @@
     obsidian
     telegram-desktop
     timewarrior
-    wmenu
 
     # Development & Build Tools
     cmake

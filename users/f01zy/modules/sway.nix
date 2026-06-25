@@ -52,7 +52,8 @@
         {
           "${mod}+Return" = "exec alacritty";
           "${mod}+Shift+q" = "kill";
-          "${mod}+d" = "exec wmenu-run";
+          "${mod}+d" = "exec menu launcher";
+          "${mod}+p" = "exec menu powermenu";
           "${mod}+Shift+c" = "reload";
 
           "${mod}+h" = "focus left";

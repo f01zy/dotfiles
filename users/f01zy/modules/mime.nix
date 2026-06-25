@@ -15,7 +15,8 @@
     name = "lf";
     genericName = "File Manager";
     exec = "alacritty -e lf %u";
-    terminal = true;
+    icon = "system-file-manager";
+    terminal = false;
     categories = [
       "Utility"
       "FileManager"

@@ -1,5 +1,4 @@
 { pkgs }:
-
 pkgs.writeShellScriptBin "wallpaper" ''
   #!/usr/bin/env bash
   CACHE_FILE="$HOME/.cache/current_wallpaper"
