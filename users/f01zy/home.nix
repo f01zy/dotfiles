@@ -38,6 +38,7 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Programs
+    the-powder-toy
     discord
     spotify
     bluetui
@@ -53,6 +54,7 @@
     nixfmt
     unzip
     wakatime-cli
+    gdb
 
     # System & Media Utils
     awww

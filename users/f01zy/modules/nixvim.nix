@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -68,6 +68,14 @@
           "<leader>fg" = "live_grep";
           "<leader>fb" = "buffers";
           "<leader>fh" = "help_tags";
+        };
+      };
+
+      toggleterm = {
+        enable = true;
+        settings = {
+          direction = "horizontal";
+          size = 10;
         };
       };
 
@@ -215,6 +223,18 @@
         options = {
           silent = true;
           desc = "Close current buffer";
+        };
+      }
+      {
+        mode = [
+          "n"
+          "t"
+        ];
+        key = "<A-h>";
+        action = "<cmd>ToggleTerm<CR>";
+        options = {
+          silent = true;
+          desc = "Toggle terminal";
         };
       }
     ];

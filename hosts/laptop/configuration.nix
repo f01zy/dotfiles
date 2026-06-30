@@ -69,4 +69,5 @@
   programs.amnezia-vpn.enable = true;
   programs.sway.enable = true;
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 }
