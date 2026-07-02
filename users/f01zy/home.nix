@@ -6,12 +6,12 @@
   # Modules
   imports = [
     inputs.nixvim.homeModules.nixvim
+    ./modules/nixvim/main.nix
     ./modules/alacritty.nix
     ./modules/zsh.nix
     ./modules/mpd.nix
     ./modules/ncmpcpp.nix
     ./modules/fastfetch.nix
-    ./modules/nixvim.nix
     ./modules/sway.nix
     ./modules/waybar.nix
     ./modules/mako.nix
@@ -45,6 +45,7 @@
     obsidian
     telegram-desktop
     timewarrior
+    obs-studio
 
     # Development & Build Tools
     cmake

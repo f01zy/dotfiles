@@ -1,0 +1,42 @@
+{ ... }: {
+  programs.nixvim.plugins = {
+    lsp = {
+      enable = true;
+      servers = {
+        clangd.enable = true;
+        nixd.enable = true;
+      };
+    };
+
+    cmp = {
+      enable = true;
+      settings = {
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+        ];
+        mapping = {
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<Tab>" = "cmp.mapping.select_next_item()";
+          "<S-Tab>" = "cmp.mapping.select_prev_item()";
+          "<C-r>" = "cmp.mapping.close()";
+        };
+      };
+    };
+
+    conform-nvim = {
+      enable = true;
+      settings = {
+        formatters_by_ft = {
+          c = [ "clang-format" ];
+          nix = [ "nixfmt" ];
+        };
+        format_on_save = {
+          lsp_fallback = true;
+          timeout_ms = 500;
+        };
+      };
+    };
+  };
+}
