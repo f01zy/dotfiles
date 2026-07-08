@@ -35,7 +35,7 @@
         };
         "clock" = {
           interval = 60;
-          format = "{:%d %B %Y - %I:%M %p}";
+          format = "{:%d %B %Y - %H:%M}";
           tooltip = false;
         };
         "mpd" = {

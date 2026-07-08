@@ -24,6 +24,7 @@
     ./modules/swaylock.nix
     ./modules/swayidle.nix
     ./modules/rofi.nix
+    ./modules/tmux.nix
   ];
 
   # Packages
@@ -38,7 +39,6 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Programs
-    the-powder-toy
     discord
     spotify
     bluetui
@@ -46,8 +46,10 @@
     telegram-desktop
     timewarrior
     obs-studio
+    crow-translate
 
     # Development & Build Tools
+    mosh
     cmake
     gcc
     git
@@ -56,6 +58,9 @@
     unzip
     wakatime-cli
     gdb
+    gdb-dashboard
+    nasm
+    binutils
 
     # System & Media Utils
     awww

@@ -38,5 +38,16 @@
       underline = true;
       severity_sort = true;
     };
+
+    autoCmd = [
+      {
+        event = [
+          "VimEnter"
+          "VimLeave"
+        ];
+        pattern = "*";
+        command = "silent !tmux set status";
+      }
+    ];
   };
 }

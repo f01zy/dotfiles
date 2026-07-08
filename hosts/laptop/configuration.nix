@@ -57,8 +57,16 @@
 
   # Services
   services.gnome.gnome-keyring.enable = true;
-  services.displayManager.ly.enable = true;
   services.dbus.enable = true;
+  services.chrony.enable = true;
+
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      bigclock = "en";
+      clear_password = true;
+    };
+  };
 
   hardware.bluetooth = {
     enable = true;
