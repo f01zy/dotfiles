@@ -9,6 +9,7 @@
     inputs.catppuccin.homeModules.catppuccin
 
     ./modules/nixvim/main.nix
+    ./modules/eww/main.nix
     ./modules/alacritty.nix
     ./modules/zsh.nix
     ./modules/ncspot.nix
@@ -36,6 +37,8 @@
     # Scripts
     (import ./scripts/wallpaper.nix { inherit pkgs; })
     (import ./scripts/now-playing.nix { inherit pkgs; })
+    (import ./scripts/widget-popup.nix { inherit pkgs; })
+    (import ./scripts/calendar-generate.nix { inherit pkgs; })
 
     # Inputs
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default

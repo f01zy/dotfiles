@@ -45,6 +45,7 @@
           interval = 60;
           format = "{:%d %B %Y - %H:%M}";
           tooltip = false;
+          on-click = "widget-popup calendar";
         };
         "cpu" = {
           interval = 1;

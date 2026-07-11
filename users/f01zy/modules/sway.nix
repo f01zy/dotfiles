@@ -96,7 +96,6 @@
           "${mod}+b" = "splith";
           "${mod}+v" = "splitv";
           "${mod}+s" = "layout stacking";
-          "${mod}+w" = "layout tabbed";
           "${mod}+e" = "layout toggle split";
           "${mod}+f" = "fullscreen";
           "${mod}+Shift+space" = "floating toggle";
@@ -120,6 +119,7 @@
           "${mod}+Shift+z" = "exec zen";
           "${mod}+Shift+o" = "exec obsidian";
           "${mod}+Shift+w" = "exec wallpaper random";
+          "${mod}+w" = "exec widget-popup wallpapers";
         };
 
       modes = {
