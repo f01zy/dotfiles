@@ -9,8 +9,7 @@
     ./modules/nixvim/main.nix
     ./modules/alacritty.nix
     ./modules/zsh.nix
-    ./modules/mpd.nix
-    ./modules/ncmpcpp.nix
+    ./modules/ncspot.nix
     ./modules/fastfetch.nix
     ./modules/sway.nix
     ./modules/waybar.nix
@@ -32,44 +31,42 @@
   home.packages = with pkgs; [
     # Scripts
     (import ./scripts/wallpaper.nix { inherit pkgs; })
-    (import ./scripts/menu.nix { inherit pkgs; })
-    (import ./scripts/off.nix { inherit pkgs; })
+    (import ./scripts/now-playing.nix { inherit pkgs; })
 
     # Inputs (Flakes)
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Programs
     discord
-    spotify
-    bluetui
-    obsidian
     telegram-desktop
-    timewarrior
+    spotify
+    obsidian
     obs-studio
-    crow-translate
+    timewarrior
 
     # Development & Build Tools
     mosh
     cmake
+    gnumake
+    binutils
+    nasm
     gcc
     git
-    gnumake
-    nixfmt
     unzip
-    wakatime-cli
+    nixfmt
     gdb
     gdb-dashboard
-    nasm
-    binutils
+    wakatime-cli
 
     # System & Media Utils
+    nerd-fonts.iosevka
+    papirus-icon-theme
     awww
     ripgrep
     imv
     mpv
+    playerctl
     grim
-    mpc
-    nerd-fonts.iosevka
     pulseaudio
     slurp
   ];

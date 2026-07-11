@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -11,17 +11,19 @@
     };
   };
 
-  xdg.desktopEntries.lf = {
-    name = "lf";
-    genericName = "File Manager";
-    exec = "alacritty -e lf %u";
-    icon = "system-file-manager";
-    terminal = false;
-    categories = [
-      "Utility"
-      "FileManager"
-      "ConsoleOnly"
-    ];
-    mimeType = [ "inode/directory" ];
+  xdg.desktopEntries = {
+    lf = {
+      name = "lf";
+      genericName = "File Manager";
+      exec = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.lf}/bin/lf %u";
+      icon = "system-file-manager";
+      terminal = false;
+      categories = [
+        "Utility"
+        "FileManager"
+        "ConsoleOnly"
+      ];
+      mimeType = [ "inode/directory" ];
+    };
   };
 }

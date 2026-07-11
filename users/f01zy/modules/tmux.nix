@@ -8,11 +8,22 @@
 
     plugins = with pkgs.tmuxPlugins; [
       {
+        plugin = resurrect;
+        extraConfig = ''
+          set -g @resurrect-capture-pane-contents 'on'
+        '';
+      }
+      {
+        plugin = continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '15'
+        '';
+      }
+      {
         plugin = catppuccin;
         extraConfig = ''
           set -g @catppuccin_flavor 'mocha'
-          set -g @catppuccin_window_tabs_enabled 'on'
-          set -g @catppuccin_date_time_text "%H:%M"
         '';
       }
     ];

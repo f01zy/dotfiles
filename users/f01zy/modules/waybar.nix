@@ -10,25 +10,33 @@
         modules-left = [
           "sway/workspaces"
           "custom/separator"
-          "mpd"
-          "custom/todo"
+          "custom/now-playing"
         ];
         modules-center = [
           "clock"
         ];
         modules-right = [
-          "network"
-          "custom/separator"
-          "pulseaudio"
+          "tray"
           "custom/separator"
           "cpu"
           "custom/separator"
           "memory"
+          "custom/separator"
+          "network"
+          "custom/separator"
+          "pulseaudio"
         ];
         "custom/separator" = {
           format = "|";
           interval = "once";
           tooltip = false;
+        };
+        "custom/now-playing" = {
+          exec = "now-playing";
+          interval = 1;
+          format = "{}";
+          return-type = "json";
+          tooltip = true;
         };
         "sway/workspaces" = {
           disable-scroll = true;
@@ -37,25 +45,6 @@
           interval = 60;
           format = "{:%d %B %Y - %H:%M}";
           tooltip = false;
-        };
-        "mpd" = {
-          max-length = 30;
-          format = "<span> </span> {title}";
-          format-paused = "<span> </span> {title}";
-          format-stopped = "";
-          format-disconnected = "";
-          on-click = "mpc --quiet toggle";
-          on-click-right = "mpc ls | mpc add";
-          on-click-middle = "alacritty -e ncmpcpp";
-          on-scroll-up = "mpc --quiet prev";
-          on-scroll-down = "mpc --quiet next";
-          smooth-scrolling-threshold = 5;
-          tooltip-format = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
-        };
-        "disk" = {
-          interval = 18000;
-          format = "<span> </span> {percentage_used}%";
-          tooltip-format = "{used} used out of {total} on {path}";
         };
         "cpu" = {
           interval = 1;
@@ -91,6 +80,9 @@
           };
           tooltip = false;
         };
+        "tray" = {
+          spacing = 8;
+        };
       };
     };
 
@@ -107,7 +99,7 @@
         color: #cdd6f4;
         background-color: #1e1e2e;
         border-bottom: 1px solid #45475a;
-        transition-duration: 0.2s;
+        transition-duration: 0.5s;
         transition-property: background-color;
       }
       #workspaces button {
@@ -135,65 +127,25 @@
         box-shadow: inherit;
       }
       #clock,
-      #mpd,
-      #idle_inhibitor,
-      #custom-cava-internal,
-      #disk,
-      #backlight,
-      #temperature,
-      #bluetooth,
+      #custom-now-playing,
       #network,
       #pulseaudio,
       #cpu,
       #memory,
-      #battery,
-      #mode {
+      #tray {
         margin: 0px 2px;
         padding: 0.2rem 0.6rem;
         color: #cdd6f4;
         background: #1e1e2e;
         border-bottom: 1px solid #45475a;
       }
-      #mode,
       #tray {
         margin: 0 0 0 2px;
-      }
-      @keyframes blink {
-        to {
-          color: #cdd6f4;
-          background-color: #1e1e2e;
-        }
-      }
-      #battery.critical:not(.charging) {
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-        color: #f38ba8;
-        background-color: #1e1e2e;
-      }
-      #battery.charging {
-        color: #a6e3a1;
-        background-color: #1e1e2e;
-      }
-      #mpd.paused {
-        color: #585b70;
-        background-color: #1e1e2e;
-      }
-      #mpd.stopped {
-        background: transparent;
       }
       #custom-separator {
         color: #45475a;
         background: #1e1e2e;
         border-bottom: 1px solid #45475a;
-      }
-      #idle_inhibitor {
-        color: #94e2d5;
-      }
-      #custom-cava-internal{
-        font-family: "Iosevka Nerd Font" ;
       }
     '';
   };

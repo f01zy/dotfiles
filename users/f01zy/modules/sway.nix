@@ -52,8 +52,7 @@
         {
           "${mod}+Return" = "exec alacritty";
           "${mod}+Shift+q" = "kill";
-          "${mod}+d" = "exec menu launcher";
-          "${mod}+p" = "exec menu powermenu";
+          "${mod}+d" = "exec rofi -no-lazy-grab -show drun -modi drun -theme launcher";
           "${mod}+Shift+c" = "reload";
 
           "${mod}+h" = "focus left";
@@ -171,7 +170,7 @@
       blur disable
       for_window [app_id="Alacritty"] blur enable
       for_window [app_id="Alacritty"] blur_passes 2
-      for_window [app_id="Alacritty"] blur_radius 4
+      for_window [app_id="Alacritty"] blur_radius 6
     '';
   };
 }

@@ -11,9 +11,9 @@
     };
 
     shellAliases = {
-      se = "sudoedit";
       ll = "ls -l";
       la = "ls -la";
+      se = "sudoedit";
       nrs = "sudo nixos-rebuild switch --flake /etc/nixos/#nixos";
       cb = "cmake --build . -j 4";
     };

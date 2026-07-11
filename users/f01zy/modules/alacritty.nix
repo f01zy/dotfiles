@@ -16,10 +16,9 @@
       };
 
       window = {
-        opacity = 0.85;
+        opacity = 0.80;
       };
 
-      # Catppuccin Mocha
       colors = {
         primary = {
           background = "#1e1e2e";

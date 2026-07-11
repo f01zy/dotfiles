@@ -5,6 +5,7 @@
       servers = {
         clangd.enable = true;
         nixd.enable = true;
+        glsl_analyzer.enable = true;
       };
     };
 
@@ -30,6 +31,7 @@
       settings = {
         formatters_by_ft = {
           c = [ "clang-format" ];
+          glsl = [ "clang-format" ];
           nix = [ "nixfmt" ];
         };
         format_on_save = {
