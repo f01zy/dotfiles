@@ -20,12 +20,6 @@
           set -g @continuum-save-interval '15'
         '';
       }
-      {
-        plugin = catppuccin;
-        extraConfig = ''
-          set -g @catppuccin_flavor 'mocha'
-        '';
-      }
     ];
 
     extraConfig = ''

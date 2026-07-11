@@ -7,8 +7,6 @@
 
     config = {
       modifier = "Mod4";
-      terminal = "alacritty";
-      menu = "rofi";
 
       fonts = {
         names = [ "Iosevka Nerd Font" ];

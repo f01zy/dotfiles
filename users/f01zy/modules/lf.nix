@@ -15,16 +15,16 @@ let
         ${pkgs.bat}/bin/bat --style=changes --color=always "$file"
         ;;
       *)
-        file -b "$file"
+        ${pkgs.file}/bin/file -b "$file"
         ;;
     esac
   '';
 in
 {
-  home.packages = [
-    pkgs.chafa
-    pkgs.file
-    pkgs.bat
+  home.packages = with pkgs; [
+    chafa
+    bat
+    file
   ];
 
   programs.lf = {
@@ -53,9 +53,5 @@ in
       "mf" = "push :touch<space>";
       "o" = "open";
     };
-
-    extraConfig = ''
-      set colors 'bg:#1e1e2e:fg:#cdd6f4:*.tw=#b4befe:*.dir=#74c7ec:*.zip=#89dceb'
-    '';
   };
 }

@@ -7,6 +7,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     zen-browser.url = "github:youwen5/zen-browser-flake";
     nixvim.url = "github:nix-community/nixvim";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =

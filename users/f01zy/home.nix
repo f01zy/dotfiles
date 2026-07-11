@@ -6,6 +6,8 @@
   # Modules
   imports = [
     inputs.nixvim.homeModules.nixvim
+    inputs.catppuccin.homeModules.catppuccin
+
     ./modules/nixvim/main.nix
     ./modules/alacritty.nix
     ./modules/zsh.nix
@@ -17,13 +19,15 @@
     ./modules/lf.nix
     ./modules/zathura.nix
     ./modules/gnupg.nix
-    ./modules/themes.nix
     ./modules/mime.nix
     ./modules/zen.nix
     ./modules/swaylock.nix
     ./modules/swayidle.nix
     ./modules/rofi.nix
     ./modules/tmux.nix
+    ./modules/git.nix
+    ./modules/catppuccin.nix
+    ./modules/cursor.nix
   ];
 
   # Packages
@@ -33,41 +37,37 @@
     (import ./scripts/wallpaper.nix { inherit pkgs; })
     (import ./scripts/now-playing.nix { inherit pkgs; })
 
-    # Inputs (Flakes)
+    # Inputs
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Programs
     discord
     telegram-desktop
-    spotify
     obsidian
     obs-studio
     timewarrior
+    qalculate-gtk
 
     # Development & Build Tools
     mosh
     cmake
     gnumake
-    binutils
-    nasm
     gcc
-    git
     unzip
     nixfmt
     gdb
-    gdb-dashboard
     wakatime-cli
 
     # System & Media Utils
     nerd-fonts.iosevka
     papirus-icon-theme
-    awww
     ripgrep
+    playerctl
     imv
     mpv
-    playerctl
+    bat
+    awww
     grim
-    pulseaudio
     slurp
   ];
 }
