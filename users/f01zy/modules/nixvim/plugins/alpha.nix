@@ -5,7 +5,7 @@
       layout = [
         {
           type = "padding";
-          val = 4;
+          val = 7;
         }
         {
           type = "text";
@@ -76,14 +76,6 @@
         {
           type = "padding";
           val = 2;
-        }
-        {
-          type = "text";
-          val = "Even if you reject me, even if you deny me, i will never forget you.";
-          opts = {
-            position = "center";
-            hl = "Keyword";
-          };
         }
       ];
       opts = {

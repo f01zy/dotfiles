@@ -36,7 +36,7 @@
           interval = 1;
           format = "{}";
           return-type = "json";
-          tooltip = true;
+          tooltip = false;
         };
         "sway/workspaces" = {
           disable-scroll = true;
@@ -45,7 +45,6 @@
           interval = 60;
           format = "{:%d %B %Y - %H:%M}";
           tooltip = false;
-          on-click = "widget-popup calendar";
         };
         "cpu" = {
           interval = 1;
@@ -80,6 +79,7 @@
             warning = 85;
           };
           tooltip = false;
+          on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
         };
         "tray" = {
           spacing = 8;

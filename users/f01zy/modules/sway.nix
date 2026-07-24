@@ -50,7 +50,7 @@
         {
           "${mod}+Return" = "exec alacritty";
           "${mod}+Shift+q" = "kill";
-          "${mod}+d" = "exec rofi -no-lazy-grab -show drun -modi drun -theme launcher";
+          "${mod}+d" = "exec rofi -show drun -theme launcher";
           "${mod}+Shift+c" = "reload";
 
           "${mod}+h" = "focus left";

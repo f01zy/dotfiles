@@ -128,3 +128,8 @@
     background-color: #181825 !important;
   }
 }
+
+.titlebar-buttonbox-container,
+.titlebar-buttonbox {
+  display: none !important;
+}

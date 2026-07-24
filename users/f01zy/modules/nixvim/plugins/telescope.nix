@@ -6,6 +6,7 @@
         file_ignore_patterns = [
           "^.git/"
           "^node_modules/"
+          "^third_party/"
           "target/"
         ];
       };

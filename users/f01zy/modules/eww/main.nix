@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./widgets/calendar.nix
     ./widgets/wallpapers.nix
   ];
 
@@ -11,14 +10,8 @@
 
   xdg.configFile = {
     "eww/eww.yuck".text = ''
-      (defvar calendar false)
       (defvar wallpapers false)
       (defvar eww "${pkgs.eww}/bin/eww")
-      (defpoll calendar-day :interval "10h" "${pkgs.coreutils}/bin/date '+%d'")
-      (defpoll calendar-month :interval "10h" "${pkgs.coreutils}/bin/date '+%B'")
-      (defpoll calendar-year :interval "10h" "${pkgs.coreutils}/bin/date '+%Y'")
-      (defpoll calendar-short :interval "10h" "${pkgs.coreutils}/bin/date '+%b %d, %Y'")
-      (include "widgets/calendar.yuck")
       (include "widgets/wallpapers.yuck")
     '';
 
@@ -44,7 +37,6 @@
         background: transparent;
       }
       @import "styles/colors.scss";
-      @import "styles/calendar.scss";
       @import "styles/wallpapers.scss";
     '';
   };

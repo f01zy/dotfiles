@@ -38,17 +38,18 @@
     (import ./scripts/wallpaper.nix { inherit pkgs; })
     (import ./scripts/now-playing.nix { inherit pkgs; })
     (import ./scripts/widget-popup.nix { inherit pkgs; })
-    (import ./scripts/calendar-generate.nix { inherit pkgs; })
 
     # Inputs
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Programs
+    spotify
     discord
     telegram-desktop
     obsidian
     obs-studio
     timewarrior
+    en-croissant
     qalculate-gtk
 
     # Development & Build Tools
@@ -66,7 +67,7 @@
     papirus-icon-theme
     ripgrep
     playerctl
-    imv
+    qimgv
     mpv
     bat
     awww
