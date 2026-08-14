@@ -24,9 +24,10 @@
           modules = [
             ./hosts/laptop/hardware-configuration.nix
             ./hosts/laptop/configuration.nix
+            { nixpkgs.config.allowUnfree = true; }
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = false;
+              home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users = {

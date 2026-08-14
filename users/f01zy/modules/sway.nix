@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   wayland.windowManager.sway = {
     enable = true;
     checkConfig = false;
@@ -29,10 +29,6 @@
         titlebar = false;
       };
 
-      floating = {
-        modifier = "Mod4";
-      };
-
       input = {
         "type:touchpad" = {
           events = "disabled";
@@ -47,53 +43,44 @@
         let
           mod = "Mod4";
         in
-        {
-          "${mod}+Return" = "exec alacritty";
+        lib.mkOptionDefault {
+          "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty -e tmux new-session -A -s main";
+          "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun -theme launcher";
           "${mod}+Shift+q" = "kill";
-          "${mod}+d" = "exec rofi -show drun -theme launcher";
           "${mod}+Shift+c" = "reload";
 
           "${mod}+h" = "focus left";
           "${mod}+j" = "focus down";
           "${mod}+k" = "focus up";
           "${mod}+l" = "focus right";
-          "${mod}+Left" = "focus left";
-          "${mod}+Down" = "focus down";
-          "${mod}+Up" = "focus up";
-          "${mod}+Right" = "focus right";
 
           "${mod}+Shift+h" = "move left";
           "${mod}+Shift+j" = "move down";
           "${mod}+Shift+k" = "move up";
           "${mod}+Shift+l" = "move right";
-          "${mod}+Shift+Left" = "move left";
-          "${mod}+Shift+Down" = "move down";
-          "${mod}+Shift+Up" = "move up";
-          "${mod}+Shift+Right" = "move right";
 
-          "${mod}+1" = "workspace number 1";
-          "${mod}+2" = "workspace number 2";
-          "${mod}+3" = "workspace number 3";
-          "${mod}+4" = "workspace number 4";
-          "${mod}+5" = "workspace number 5";
-          "${mod}+6" = "workspace number 6";
-          "${mod}+7" = "workspace number 7";
-          "${mod}+8" = "workspace number 8";
-          "${mod}+9" = "workspace number 9";
-          "${mod}+0" = "workspace number 10";
+          "${mod}+1" = "workspace 1";
+          "${mod}+2" = "workspace 2";
+          "${mod}+3" = "workspace 3";
+          "${mod}+4" = "workspace 4";
+          "${mod}+5" = "workspace 5";
+          "${mod}+6" = "workspace 6";
+          "${mod}+7" = "workspace 7";
+          "${mod}+8" = "workspace 8";
+          "${mod}+9" = "workspace 9";
+          "${mod}+0" = "workspace 10";
 
-          "${mod}+Shift+1" = "move container to workspace number 1";
-          "${mod}+Shift+2" = "move container to workspace number 2";
-          "${mod}+Shift+3" = "move container to workspace number 3";
-          "${mod}+Shift+4" = "move container to workspace number 4";
-          "${mod}+Shift+5" = "move container to workspace number 5";
-          "${mod}+Shift+6" = "move container to workspace number 6";
-          "${mod}+Shift+7" = "move container to workspace number 7";
-          "${mod}+Shift+8" = "move container to workspace number 8";
-          "${mod}+Shift+9" = "move container to workspace number 9";
-          "${mod}+Shift+0" = "move container to workspace number 10";
+          "${mod}+Shift+1" = "move container to workspace 1";
+          "${mod}+Shift+2" = "move container to workspace 2";
+          "${mod}+Shift+3" = "move container to workspace 3";
+          "${mod}+Shift+4" = "move container to workspace 4";
+          "${mod}+Shift+5" = "move container to workspace 5";
+          "${mod}+Shift+6" = "move container to workspace 6";
+          "${mod}+Shift+7" = "move container to workspace 7";
+          "${mod}+Shift+8" = "move container to workspace 8";
+          "${mod}+Shift+9" = "move container to workspace 9";
+          "${mod}+Shift+0" = "move container to workspace 10";
 
-          "${mod}+b" = "splith";
           "${mod}+v" = "splitv";
           "${mod}+s" = "layout stacking";
           "${mod}+e" = "layout toggle split";
@@ -106,20 +93,20 @@
           "${mod}+minus" = "scratchpad show";
           "${mod}+r" = "mode resize";
 
+          "${mod}+b" = "exec zen";
+          "${mod}+m" = "exec ${pkgs.alacritty}/bin/alacritty -e lf";
+          "${mod}+w" = "exec widget-popup wallpapers";
+          "${mod}+Shift+w" = "exec wallpaper random";
+          "${mod}+Shift+x" = "exec swaylock";
+          "Print" = "exec grim -g \"$(slurp)\" -t png - | wl-copy -t image/png";
+          "XF86Launch4" = "exec swaylock -f && systemctl suspend";
+
           "--locked XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
           "--locked XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
           "--locked XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
           "--locked XF86AudioMicMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
           "--locked XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
           "--locked XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
-
-          "XF86Launch4" = "exec swaylock -f && systemctl suspend";
-          "Print" = "exec grim -g \"$(slurp)\" -t png - | wl-copy -t image/png";
-          "${mod}+Shift+x" = "exec swaylock";
-          "${mod}+Shift+z" = "exec zen";
-          "${mod}+Shift+o" = "exec obsidian";
-          "${mod}+Shift+w" = "exec wallpaper random";
-          "${mod}+w" = "exec widget-popup wallpapers";
         };
 
       modes = {
@@ -128,10 +115,6 @@
           "j" = "resize grow height 10px";
           "k" = "resize shrink height 10px";
           "l" = "resize grow width 10px";
-          "Left" = "resize shrink width 10px";
-          "Down" = "resize grow height 10px";
-          "Up" = "resize shrink height 10px";
-          "Right" = "resize grow width 10px";
           "Return" = "mode default";
           "Escape" = "mode default";
         };

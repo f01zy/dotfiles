@@ -12,14 +12,7 @@
 > * **Terminal:** Alacritty
 > * **Editor:** Nixvim
 
-A minimalist and strict environment. Built around tiling, the terminal, and a keyboard-centric workflow.
-
-### Setup Details
-
-* **Visuals:** Unified color palette based on Catppuccin. Applied consistently across the system, from the Swayfx interface to `fastfetch` output.
-* **Modularity:** Configurations are managed via Home Manager, making it easy to port the setup or decouple specific widgets.
-
-### Installation
+## Installation
 
 This guide assumes you have a fresh NixOS installation with Flakes enabled.
 
@@ -35,7 +28,26 @@ cp /etc/nixos/hardware-configuration.nix ./hosts/device-name/
 ```
 
 3. Edit the variables (username, host) in `flake.nix` to match your setup.
-4. Apply the system configuration:
+4. Move your wallpapers into `~/Wallpapers` or change the path in `users/user/scripts/wallpaper.nix`.
+5. Apply the system configuration:
 ```bash
 sudo nixos-rebuild switch --flake .#hostname
 ```
+
+## Keybinds
+
+### Launch Applications
+
+| Action       | Keybind          | Description                 |
+|--------------|------------------|-----------------------------|
+| Terminal     | `SUPER + RETURN` | Launch terminal with `tmux` |
+| Browser      | `SUPER + B`      | Launch zen browser          |
+| File Manager | `SUPER + M`      | Launch `lf` file manager    |
+| App Menu     | `SUPER + D`      | Launch application menu     |
+
+### Scripts
+
+| Action           | Keybind             | Description                   |
+|------------------|---------------------|-------------------------------|
+| Select Wallpaper | `SUPER + W`         | Run wallpaper selector script |
+| Random Wallpaper | `SUPER + SHIFT + W` | Choose random wallpaper       |

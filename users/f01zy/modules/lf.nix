@@ -45,6 +45,16 @@ in
     commands = {
       mkdir = ''%mkdir -p "$@"'';
       touch = ''%touch "$@"'';
+      delete = ''
+        %{{
+          set -f
+          printf "Delete selected files? [y/N] "
+          read ans
+          if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
+              rm -rf $fx
+          fi
+        }}
+      '';
     };
 
     keybindings = {
@@ -52,6 +62,7 @@ in
       "md" = "push :mkdir<space>";
       "mf" = "push :touch<space>";
       "o" = "open";
+      "D" = "delete";
     };
   };
 }

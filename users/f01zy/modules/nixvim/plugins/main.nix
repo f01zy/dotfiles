@@ -4,6 +4,7 @@
     ./telescope.nix
     ./bufferline.nix
     ./formatters.nix
+    ./cord.nix
   ];
 
   programs.nixvim.plugins = {

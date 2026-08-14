@@ -32,7 +32,6 @@
   ];
 
   # Packages
-  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # Scripts
     (import ./scripts/wallpaper.nix { inherit pkgs; })
@@ -49,8 +48,8 @@
     obsidian
     obs-studio
     timewarrior
-    en-croissant
     qalculate-gtk
+    bluetui
 
     # Development & Build Tools
     mosh

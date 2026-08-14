@@ -1,16 +1,13 @@
-{
-  pkgs,
-  ...
-}:
-
+{ pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    efiSupport = true;
-    useOSProber = true;
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+    };
+    efi.canTouchEfiVariables = true;
   };
 
   networking.networkmanager.enable = true;
@@ -37,7 +34,6 @@
 
   services.xserver.xkb = {
     layout = "us";
-    variant = "";
   };
 
   users.users."f01zy" = {
@@ -59,6 +55,7 @@
   services.gnome.gnome-keyring.enable = true;
   services.dbus.enable = true;
   services.chrony.enable = true;
+  services.zerotierone.enable = true;
 
   services.displayManager.ly = {
     enable = true;
@@ -66,6 +63,11 @@
       bigclock = "en";
       clear_password = true;
     };
+  };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   hardware.bluetooth = {
@@ -78,4 +80,11 @@
   programs.sway.enable = true;
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
+
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
 }

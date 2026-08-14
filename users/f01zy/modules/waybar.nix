@@ -34,8 +34,8 @@
         "custom/now-playing" = {
           exec = "now-playing";
           interval = 1;
-          format = "{}";
           return-type = "json";
+          on-click = "playerctl play-pause";
           tooltip = false;
         };
         "sway/workspaces" = {
